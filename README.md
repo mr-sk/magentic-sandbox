@@ -1,4 +1,4 @@
-Examples on how to use this project, which is leveraging Magentic to provide decators that utilize openAI API's ChatGPT. 
+Examples on how to use this project, which is leveraging Magentic to provide decorator that utilize openAI API's ChatGPT. 
 
 To setup:
 
@@ -18,4 +18,4 @@ Todo
 
 Summary
 
-* Really just messin around with Magentic, there's a few examples of calling the LLM as a decator. It's a cool concept. 
+* Really just messin around with Magentic, there's a few examples of calling the LLM as a decorator. It's a cool concept. 
