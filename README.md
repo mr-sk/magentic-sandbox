@@ -1,4 +1,4 @@
-Examples on how to use this project, which is leveraging Magentic to provide decorator that utilize openAI API's ChatGPT. 
+Examples on how to use this project, which is leveraging Magentic to provide decorator that utilize openAI API's ChatGPT.
 
 To setup:
 
@@ -14,8 +14,8 @@ To setup:
 
 Todo
 
-* In `command_execution.py` when it attemps to execute the command, it just "creates directories" for each "command" it is suppose to be executing. The split() command ([list]) looks correct, but the subprocess.check_output(command) totally bombs. Need to fix this. 
+* [x] In `command_execution.py` when it attemps to execute the command, it just "creates directories" for each "command" it is suppose to be executing. The split() command ([list]) looks correct, but the subprocess.check_output(command) totally bombs. Need to fix this.
 
 Summary
 
-* Really just messin around with Magentic, there's a few examples of calling the LLM as a decorator. It's a cool concept. 
+* Really just messin around with Magentic, there's a few examples of calling the LLM as a decorator. It's a cool concept.
