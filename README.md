@@ -1,4 +1,9 @@
-Examples on how to use this project, which is leveraging Magentic to provide decorator that utilize openAI API's ChatGPT.
+This sandbox leverages magentic (https://github.com/jackmpcollins/magentic) which provides openAI chatgpt based interaction
+via @prompt decorators. 
+
+The prompt used is provided here: https://github.com/mr-sk/magentic-sandbox/blob/main/command_execution.py#L38
+
+The point is to take natural language commands and turn into commands the script can execute. 
 
 To setup:
 
@@ -14,11 +19,26 @@ To setup:
 
 To Run:
 
-    // Easy
-    python3 command_execution
+    (venv) sk@brokebox:~/Research/magentic$ python3 command_execution.py Touch a file name github-test.txt with Testing 1,2,3 as the first and only line in the file
+    GPT Output: To create a file named 'github-test.txt' with the content 'Testing 1,2,3', you can use the following command:
 
-`ls` the directory and rm the test.txt as needed. 
+     ```
+     echo 'Testing 1,2,3' > github-test.txt
+     ```
 
+    This command will create a file named 'github-test.txt' and write the text 'Testing 1,2,3' as the first and only line in the file.
+    Clean Command: ["echo 'Testing 1,2,3' > github-test.txt"]
+    stdout: 
+    Run Output for: None
+    
+Lets check if it worked:
+
+    (venv) sk@brokebox:~/Research/magentic$ ls
+    abcd.txt              github-test.txt   streaming.py  venv
+    command_execution.py  README.md         test.py
+    function_chain.py     requirements.txt  test.txt
+    (venv) sk@brokebox:~/Research/magentic$ cat github-test.txt 
+    Testing 1,2,3
 
 Todo
 * [ ] Have the commands execute in subdirectory on the local fs
