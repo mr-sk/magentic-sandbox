@@ -1,3 +1,5 @@
+import os
+import stat
 from magentic import prompt_chain
 from subprocess import getoutput
 
@@ -79,3 +81,7 @@ for command in clean_commands:
 # Assert things are correct
 assert "test.txt" in getoutput("ls")
 assert "hello llm" in getoutput("cat test.txt")
+
+st = os.stat("test.txt")
+oct_perm = oct(st.st_mode)
+assert "0664" in oct_perm[-4:]
