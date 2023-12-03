@@ -13,6 +13,7 @@ To setup:
     source ~/.bashrc
 
 To Run:
+
     // Easy
     python3 command_execution
 
