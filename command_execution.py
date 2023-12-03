@@ -3,6 +3,11 @@ import stat
 from magentic import prompt_chain
 from subprocess import getoutput
 
+def run_command(command: str) -> str:
+    for command in clean_commands:
+        stdout = getoutput(command)
+        print(f"stdout: {stdout}")
+
 def validate_command(command: str) -> str:
     length = len(command)
     idx = 0
@@ -68,15 +73,14 @@ def commandify_verbal(verbal: str) -> str:
     ...
 
 
-output = commandify_verbal("Touch a file called test.txt and echo 'hello llm' into it.")
-print(f"{output}")
+gpt_output = commandify_verbal("Touch a file called test.txt and echo 'hello llm' into it.")
+print(f"GPT Output: {gpt_output}")
 
-clean_commands = validate_command(output)
-print(f"Clean command: {clean_commands}")
+clean_commands = validate_command(gpt_output)
+print(f"Clean Command: {clean_commands}")
 
-for command in clean_commands:
-    stdout = getoutput(command)
-    print(f"stdout: {stdout}")
+run_output = run_command(clean_commands)
+print(f"Run Output: {run_output}")
 
 # Assert things are correct
 assert "test.txt" in getoutput("ls")
