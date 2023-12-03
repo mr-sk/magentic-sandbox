@@ -1,3 +1,4 @@
+import argparse
 import os
 import stat
 from magentic import prompt_chain
@@ -72,20 +73,19 @@ Completion:
 def commandify_verbal(verbal: str) -> str:
     ...
 
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="GPT Text-to-Command - CLI [sk#innercircle]")
+    parser.add_argument("prompts", nargs="+", help="One or more prompts")
+    args = parser.parse_args()
 
-gpt_output = commandify_verbal("Touch a file called test.txt and echo 'hello llm' into it.")
-print(f"GPT Output: {gpt_output}")
+    # Get args.prompts into a string
+    prompt_string = " ".join(args.prompts)
 
-clean_commands = validate_command(gpt_output)
-print(f"Clean Command: {clean_commands}")
+    gpt_output = commandify_verbal(prompt_string)
+    print(f"GPT Output: {gpt_output}")
 
-run_output = run_command(clean_commands)
-print(f"Run Output: {run_output}")
+    clean_commands = validate_command(gpt_output)
+    print(f"Clean Command: {clean_commands}")
 
-# Assert things are correct
-assert "test.txt" in getoutput("ls")
-assert "hello llm" in getoutput("cat test.txt")
-
-st = os.stat("test.txt")
-oct_perm = oct(st.st_mode)
-assert "0664" in oct_perm[-4:]
+    run_output = run_command(clean_commands)
+    print(f"Run Output for: {run_output}")
