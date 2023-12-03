@@ -75,3 +75,7 @@ print(f"Clean command: {clean_commands}")
 for command in clean_commands:
     stdout = getoutput(command)
     print(f"stdout: {stdout}")
+
+# Assert things are correct
+assert "test.txt" in getoutput("ls")
+assert "hello llm" in getoutput("cat test.txt")

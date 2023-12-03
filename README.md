@@ -12,9 +12,19 @@ To setup:
     export OPENAI_API_KEY=”<yourkey>”
     source ~/.bashrc
 
-Todo
+To Run:
+    // Easy
+    python3 command_execution
 
-* [x] In `command_execution.py` when it attemps to execute the command, it just "creates directories" for each "command" it is suppose to be executing. The split() command ([list]) looks correct, but the subprocess.check_output(command) totally bombs. Need to fix this.
+`ls` the directory and rm the test.txt as needed. 
+
+
+Todo
+* [] Have the commands execute in subdirectory on the local fs
+
+* [] Where the assertions are executed, could instead have the llm generate the asserts to validate the command and then we (in some environment) assert them. Additionally, then feed the error back into the llm and prompt it to fix. 
+
+* [FIXED] In `command_execution.py` when it attemps to execute the command, it just "creates directories" for each "command" it is suppose to be executing. The split() command ([list]) looks correct, but the subprocess.check_output(command) totally bombs. Need to fix this.
 
 Summary
 
