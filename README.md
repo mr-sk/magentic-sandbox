@@ -33,17 +33,15 @@ To Run:
     
 Lets check if it worked:
 
-    (venv) sk@brokebox:~/Research/magentic$ ls
-    abcd.txt              github-test.txt   streaming.py  venv
-    command_execution.py  README.md         test.py
-    function_chain.py     requirements.txt  test.txt
-    (venv) sk@brokebox:~/Research/magentic$ cat github-test.txt 
+    (venv) $ ls
+    github-test.txt   
+    (venv) $ cat github-test.txt 
     Testing 1,2,3
 
 Todo
 * [ ] Have the commands execute in subdirectory on the local fs
 
-* [ ] Where the assertions are executed, could instead have the llm generate the asserts to validate the command and then we (in some environment) assert them. Additionally, then feed the error back into the llm and prompt it to fix. 
+* [ ] Where the assertions are executed, could instead have the llm generate the asserts to validate the command and then we (in some environment) assert them. Additionally, then feed the error back into the llm and prompt it to fix. See branch https://github.com/mr-sk/magentic-sandbox/tree/assertion_poc
 
 * [*FIXED*] In `command_execution.py` when it attemps to execute the command, it just "creates directories" for each "command" it is suppose to be executing. The split() command ([list]) looks correct, but the subprocess.check_output(command) totally bombs. Need to fix this.
 
