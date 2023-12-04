@@ -28,7 +28,7 @@ def validate_command(command: str) -> str:
 
         idx = end + 4  # Move past newline and end backticks
 
-        return command_blocks
+    return command_blocks
 
 def verbal_to_command(verbal):
     return (
