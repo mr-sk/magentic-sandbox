@@ -19,14 +19,12 @@ echo 'Testing 1,2,3' > github-test.txt
 Completion:
 ```
 assert(os.path.exists('github-test.txt'))
-assert('Testing 1,2,3' in Path('github-test.txt').read_text())
 ```
 
 User prompt:
 echo 'Testing 1,2,3' > github-test.txt
 Completion:
 ```
-assert(os.path.exists('github-test.txt'))
 assert('Testing 1,2,3' in Path('github-test.txt').read_text())
 ```
 
