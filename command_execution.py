@@ -10,28 +10,25 @@ def run_command(command: str) -> str:
         print(f"stdout: {stdout}")
 
 def validate_command(command: str) -> str:
-    length = len(command)
-    idx = 0
     command_blocks = []
-    while idx < length:
+    idx = 0
+
+    while True:
         try:
-            start = command.index('```', idx) + 3 # skip backticks
+            start = command.index('```', idx) + 3  # Skip backticks
         except ValueError:
             break
+
         end = command.index('\n```', start)
-
-        next_line = command.index('\n', start) + 1 # skip newline
+        next_line = command.index('\n', start) + 1  # Skip newline
         candidate = command[next_line:end]
-        cleansed_lines = []
-        for line in candidate.split('\n'):
-            if line.startswith('$ '): # Only for people who enter bash commands with a dollar sign
-                cleansed_lines.append(line[2:])
-            else:
-                cleansed_lines.append(line)
-        command_blocks.extend(cleansed_lines)
-        idx = end + 4 # move past newline and end backticks
 
-    return command_blocks
+        cleansed_lines = [line[2:] if line.startswith('$ ') else line for line in candidate.split('\n')]
+        command_blocks.extend(cleansed_lines)
+
+        idx = end + 4  # Move past newline and end backticks
+
+        return command_blocks
 
 def verbal_to_command(verbal):
     return (
